@@ -23,23 +23,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>กระเพราไก่-ไข่ดาว</td>
-        <td>580 Cal</td>
-        <td><button type="button" class="btn btn-primary" (click)="changeToListMenu()">Add</button></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>ข้าวขาหมู</td>
-        <td>600 Cal</td>
-        <td><button type="button" class="btn btn-primary" (click)="changeToListMenu()">Add</button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>ไก่ทอด</td>
-        <td>70 Cal</td>
-        <td><button type="button" class="btn btn-primary" (click)="changeToListMenu()">Add</button></td>
+      <tr *ngFor="let detail of detailList">
+        <th scope="row">{{detail.foodID}}</th>
+        <td>{{detail.foodName}}</td>
+        <td>{{detail.foodCalories}}</td>
+        <td><button type="button" class="btn btn-success" (click)="changeToListMenu()">Add</button></td>
       </tr>
     </tbody>
   </table>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SlidebarService } from '../../services/slidebar.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { Session } from '../../Models/session.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Session } from '../../Models/session.model';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private slidebarService: SlidebarService, private locals: LocalStorageService) { }
+  constructor(private slidebarService: SlidebarService, private locals: LocalStorageService, private router:Router) { }
   _opened: boolean;
   fullname: string;
 
@@ -31,6 +32,16 @@ export class MenuComponent implements OnInit {
 
   _toggleClose() {
     this.slidebarService.onClose();
+  }
+
+  changeToFood(){
+    this.router.navigate(['/foodlist']);
+    return false;
+  }
+
+  changeToHome(){
+    this.router.navigate(['/home']);
+    return false;
   }
 
   logout() {
