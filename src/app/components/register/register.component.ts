@@ -8,8 +8,7 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-home-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  providers: [UserService]
+  styleUrls: ['./register.component.css']
 })
 
 export class RegisterComponent implements OnInit {

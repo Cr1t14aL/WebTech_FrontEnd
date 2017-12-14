@@ -5,7 +5,7 @@ import { DetailsService } from './services/foodlist.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [DetailsService]
+
 })
 export class AppComponent {
   title = 'app';

@@ -25,6 +25,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AdminGuard } from './admin-guard.service';
+import { DetailsService } from './services/foodlist.service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { AdminGuard } from './admin-guard.service';
     ListmenuComponent,
     HomepageComponent,
     AdminComponent,
-    ProfileComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,7 @@ import { AdminGuard } from './admin-guard.service';
     AppRoutingModule,
     SidebarModule.forRoot(),
   ],
-  providers: [SlidebarService, AuthGuard, AdminGuard,AuthService,UserService],
+  providers: [SlidebarService, AuthGuard, AdminGuard,AuthService,UserService,AuthService,DetailsService,ProfileComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
