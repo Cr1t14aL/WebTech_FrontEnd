@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { User } from '../../Models/user.model';
 import { UserService } from '../../services/user.service';
 import { DetailsService } from '../../services/foodlist.service';
+import { AuthGuard } from '../../auth-guard.service'
 
 @Component({
   selector: 'app-admin',
@@ -16,13 +17,18 @@ export class AdminComponent implements OnInit {
   constructor(
     private router:Router, 
     private userService: UserService,
+    private auth: AuthGuard
   ) { }
 
   ngOnInit() {
 
-    this.userService.getUsers().subscribe((response) => {
-      this.userList = response;
-    })
+    if(this.auth.canActivate){
+      this.userService.getUsers().subscribe((response) => {
+        this.userList = response;
+      })
+    }
+   
+
   }
 
 }

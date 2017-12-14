@@ -8,10 +8,12 @@ import { LocalStorageService } from "ngx-webstorage";
 
 
 
+
 @Injectable()
 export class AuthService {
 
     private basePath: string = `http://localhost:5000/auth`;
+    private loggedInUser: User;
 
     constructor(
         private http: HttpClient,private localSt:LocalStorageService) { }
