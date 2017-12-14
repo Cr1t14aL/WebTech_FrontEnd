@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { User } from "../../Models/user.model";
 import { UserService } from '../../services/user.service';
-import { AuthGuard } from '../../auth-guard.service'
+import { AuthGuard } from '../../auth-guard.service';
+
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

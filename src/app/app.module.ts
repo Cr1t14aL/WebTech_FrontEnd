@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabModule } from 'angular-tabs-component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
@@ -26,7 +28,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AdminGuard } from './admin-guard.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,8 @@ import { AdminGuard } from './admin-guard.service';
     HttpClientModule,
     Ng2Webstorage,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    TabModule,
     SidebarModule.forRoot(),
   ],
   providers: [SlidebarService, AuthGuard, AdminGuard,AuthService,UserService],
