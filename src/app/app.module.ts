@@ -22,6 +22,7 @@ import { AuthService } from './services/auth.service';
 import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     FoodlistComponent,
     ListmenuComponent,
     HomepageComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

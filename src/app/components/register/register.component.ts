@@ -44,5 +44,9 @@ export class RegisterComponent implements OnInit {
       this.err.push(`This email already exists`);
     })
 
+    var login = document.getElementById("Login");
+    login.onclick;
+
+
   }
 }
