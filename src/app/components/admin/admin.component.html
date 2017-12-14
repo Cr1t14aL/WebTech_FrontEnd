@@ -1,3 +1,27 @@
-<p>
-  admin works!
-</p>
+<div class="cotainer" align="center">
+  <h1>User List</h1>
+
+</div>
+<br />
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr class="bg-success">
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList">
+        <th scope="row">{{user._id}}</th>
+        <td>{{user.fname}} </td>
+        <td>{{user.lname}}</td>
+        <td>{{user.email}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="changeToListMenu()">-</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

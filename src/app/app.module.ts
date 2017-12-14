@@ -46,7 +46,7 @@ import { AdminComponent } from './components/admin/admin.component';
     AppRoutingModule,
     SidebarModule.forRoot(),
   ],
-  providers: [SlidebarService, AuthGuard,AuthService],
+  providers: [SlidebarService, AuthGuard,AuthService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

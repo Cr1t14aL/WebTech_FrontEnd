@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Details } from '../../Models/detail.model';
 import { DetailsService } from '../../services/foodlist.service';
 
@@ -13,6 +13,7 @@ export class FoodlistComponent implements OnInit {
   constructor(private router:Router, private detailsService:DetailsService) { }
 
   ngOnInit() {
+
     this.detailsService.getDetail().subscribe((response) => { this.detailList = response;
     }) 
   }
