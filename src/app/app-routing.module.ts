@@ -5,6 +5,7 @@ import { MenuComponent } from './components/menu/menu.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './auth-guard.service';
+import { AdminGuard } from './admin-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
@@ -16,9 +17,9 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent, data: { title: 'Home' } },
     { path: 'homepage', component: HomepageComponent, data: { title: 'Homepage' } },
     { path: 'register', component: RegisterComponent, data: { title: 'Register' }},
-    { path: 'foodlist', component: FoodlistComponent, data: { title: 'Foodlist'}},
+    { path: 'foodlist', component: FoodlistComponent, canActivate:[AuthGuard], data: { title: 'Foodlist'}},
     { path: 'listmenu', component: ListmenuComponent, data: { title: 'Listmenu'}},
-    { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], data: { title: 'admin'}}
+    { path: 'admin', component: AdminComponent, canActivate:[AdminGuard], data: { title: 'admin'}}
     // { path: '**', component: PageNotFoundComponent, data: { title: 'Page not found' } },
 ];
 

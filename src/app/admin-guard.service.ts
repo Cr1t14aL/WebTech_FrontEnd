@@ -7,21 +7,19 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class AuthGuard implements CanActivate  {
+export class AdminGuard implements CanActivate {
 
-    constructor(private authService: AuthService, private router: Router,
-        private locals : LocalStorageService) { }
+    constructor(private authService: AuthService, private router: Router, private locals : LocalStorageService){}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
         const session : Session = this.locals.retrieve('token');
 
-        if(session != null){
+        if(session.types == 1){
             return true;
         }else{
             return false;
         }
         
     }
-
 
 }
