@@ -19,6 +19,8 @@ import { AuthGuard } from './auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
+import { FoodlistComponent } from './components/foodlist/foodlist.component';
+import { ListmenuComponent } from './components/listmenu/listmenu.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { AuthService } from './services/auth.service';
     NavbarComponent,
     RegisterComponent,
     HomeComponent,
+    FoodlistComponent,
+    ListmenuComponent,
   ],
   imports: [
     BrowserModule,
