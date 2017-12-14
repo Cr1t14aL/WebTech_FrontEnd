@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ListmenuComponent } from './components/listmenu/listmenu.component';
     HomeComponent,
     FoodlistComponent,
     ListmenuComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

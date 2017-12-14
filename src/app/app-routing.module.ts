@@ -8,10 +8,12 @@ import { AuthGuard } from './auth-guard.service';
 import { RegisterComponent } from './components/register/register.component';
 import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: '', redirectTo: 'homepage', pathMatch: 'full' },
     { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+    { path: 'homepage', component: HomepageComponent, data: { title: 'Homepage' } },
     { path: 'register', component: RegisterComponent, data: { title: 'Register' }},
     { path: 'foodlist', component: FoodlistComponent, data: { title: 'Foodlist'}},
     { path: 'listmenu', component: ListmenuComponent, data: { title: 'Listmenu'}}

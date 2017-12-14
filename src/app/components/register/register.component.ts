@@ -3,7 +3,7 @@ import { UserService } from '../../services/user.service';
 import { User, TYPES, STATUS } from '../../Models/user.model';
 import { AuthGuard } from '../../auth-guard.service';
 import { AuthService } from '../../services/auth.service';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-register',
@@ -11,12 +11,15 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./register.component.css'],
   providers: [UserService]
 })
+
 export class RegisterComponent implements OnInit {
   user: User;
   err : string[] = [];
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router:Router){ }
 
-  
+    
   ngOnInit() {
     this.user = new User();
   }
@@ -36,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.user.types = TYPES.member;
 
     this.userService.create(this.user).subscribe( user => {
-
+      this.router.navigate(['/homepage'])
     }, err => {
       this.err.push(`This email already exists`);
     })

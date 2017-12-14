@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark ">
   <a class="navbar-brand" href="">Health Care</a>
-  <a class="navbar-brand ml-auto " style="color:white" data-toggle="modal" data-target="#Login" *ngIf="this.localSt.retrieve('token') == null">Sign-in</a>
-  <a class="navbar-brand" style="color:white" routerLink="/register" *ngIf="this.localSt.retrieve('token') == null">Sign-Up</a>
+  <a class="navbar-brand ml-auto " style="color:white" data-toggle="modal" data-target="#Login" *ngIf="this.localSt.retrieve('token') == null">Login</a>
+  <a class="navbar-brand" style="color:white" routerLink="/register" *ngIf="this.localSt.retrieve('token') == null">Register</a>
   <button class="navbar-toggler" type="button" style="cursor:pointer;" (click)="_toggleSidebar()" *ngIf="this.localSt.retrieve('token') != null">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,7 +11,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title justify-content-md-center" id="Login">Sign-in</h5>
+        <h5 class="modal-title justify-content-md-center" id="Login">Login</h5>
         <button type="button" class="close" id = "closeModal" data-dismiss="modal" #closeBtn aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -20,7 +20,7 @@
         <div class="row justify-content-md-center">
           <div class="col-md-10 mb-3">
             <label for="email">Email Address</label>
-            <input type="email" class="form-control" id="lemail" placeholder="example@hotmail.com" [(ngModel)]="user.email" required>
+            <input type="email" class="form-control" id="lemail" placeholder="example@gmail.com" [(ngModel)]="user.email" required>
           </div>
         </div>
         <div class="row justify-content-md-center">
@@ -31,8 +31,8 @@
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="signIn()">Login</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="signIn()">Sign-in</button>
       </div>
     </div>
   </div>
