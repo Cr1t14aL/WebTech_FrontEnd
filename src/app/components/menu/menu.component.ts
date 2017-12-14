@@ -33,7 +33,10 @@ export class MenuComponent implements OnInit {
   _toggleClose() {
     this.slidebarService.onClose();
   }
-
+  getUser(){
+    this.router.navigate(['/profile']);
+    return false;
+  }
   changeToFood(){
     this.router.navigate(['/foodlist']);
     return false;

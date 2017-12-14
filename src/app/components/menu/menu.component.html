@@ -10,7 +10,7 @@
         </a>
         <a class="list-group-item" routerLink="['/home']" (click)="changeToHome()">Home</a>
         <a class="list-group-item" routerLink="['/foodlist']" (click)="changeToFood()">Foodlist</a>
-        <a class="list-group-item" routerLink="" (click)="_toggleClose()">Profile</a>
+        <a class="list-group-item" routerLink="[/profile]" (click)="getUser()">Profile</a>
         <a class="list-group-item" routerLink="" (click)="_toggleClose();logout()">Log-out</a>
       </div>
     </ng-sidebar>

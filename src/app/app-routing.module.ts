@@ -10,6 +10,7 @@ import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent, data: { title: 'Register' }},
     { path: 'foodlist', component: FoodlistComponent, data: { title: 'Foodlist'}},
     { path: 'listmenu', component: ListmenuComponent, data: { title: 'Listmenu'}},
-    { path: 'admin', component: AdminComponent, data: { title: 'admin'}}
+    { path: 'admin', component: AdminComponent, data: { title: 'admin'}},
+    { path: 'profile', component: ProfileComponent, data: { title: 'Profile'}, }
     // { path: '**', component: PageNotFoundComponent, data: { title: 'Page not found' } },
 ];
 

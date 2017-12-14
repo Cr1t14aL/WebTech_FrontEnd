@@ -23,6 +23,7 @@ import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AdminComponent } from './components/admin/admin.component';
     ListmenuComponent,
     HomepageComponent,
     AdminComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
