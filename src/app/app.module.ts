@@ -23,11 +23,8 @@ import { FoodlistComponent } from './components/foodlist/foodlist.component';
 import { ListmenuComponent } from './components/listmenu/listmenu.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AdminComponent } from './components/admin/admin.component';
-<<<<<<< HEAD
 import { ProfileComponent } from './components/profile/profile.component';
-=======
 import { AdminGuard } from './admin-guard.service';
->>>>>>> 906580aa0b76296e49d8e1aff2a77e8e1c44ebcf
 
 
 @NgModule({
