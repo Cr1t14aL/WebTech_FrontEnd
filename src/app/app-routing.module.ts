@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent, data: { title: 'Register' }},
     { path: 'foodlist', component: FoodlistComponent, data: { title: 'Foodlist'}},
     { path: 'listmenu', component: ListmenuComponent, data: { title: 'Listmenu'}},
-    { path: 'admin', component: AdminComponent, data: { title: 'admin'}}
+    { path: 'admin', component: AdminComponent, canActivate:[AuthGuard], data: { title: 'admin'}}
     // { path: '**', component: PageNotFoundComponent, data: { title: 'Page not found' } },
 ];
 
