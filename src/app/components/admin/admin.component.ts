@@ -22,12 +22,9 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.auth.canActivate){
       this.userService.getUsers().subscribe((response) => {
         this.userList = response;
-      })
-    }
-   
+      })   
 
   }
 
