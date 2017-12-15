@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
   registed() {
     this.err = [];
     if(!this.user.email){
-      this.err.push("Email")
+      this.err.push("Please use a valid  email")
       return;
     }
     if(!this.user.password){

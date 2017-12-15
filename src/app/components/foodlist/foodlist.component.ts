@@ -47,8 +47,9 @@ export class FoodlistComponent implements OnInit {
   save()
   {
     this.user=this.locals.retrieve('token')
-      this.user.todayCal=this.total
+    this.user.todayCal=this.total
 
+    //bug
     console.log(`${this.user.lname}`)
     console.log(`${this.user.todayCal}`)
     
