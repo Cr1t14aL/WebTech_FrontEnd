@@ -1,22 +1,16 @@
 <ngx-loading [show]="loading" [config]="{fullScreenBackdrop:true}"></ngx-loading>
 
 <h1 align="center">ADMIN PAGE</h1>
-<<<<<<< HEAD
 <tabs layout-width="500px" active="true">
 
   <tab tabTitle="Check User">
-=======
-<tabs layout-width="500px">
-  
-  <tab tabTitle="Check User" active="true">
->>>>>>> 0eb52053006a925e43f82f099bc86b9b81b72310
     <h1 align="center">User List</h1>
     <br />
     <div class="container">
       <table class="table">
         <thead>
           <tr class="bg-success">
-            <th>num</th>
+            <th>#</th>
             <th>ID</th>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -38,7 +32,7 @@
                 <span *ngSwitchCase="0">Member</span>
                 <span *ngSwitchCase="1">Admin</span>
                 <span *ngSwitchCase="2">Super Admin</span>
-                <span *ngSwitchCase="3">Aleady Delete</span>
+                <span *ngSwitchCase="3">Already Delete</span>
               </div>
             </td>
             <td>
@@ -49,11 +43,8 @@
       </table>
     </div>
   </tab>
-<<<<<<< HEAD
 
   <!-- FoodList table -->
-=======
->>>>>>> 0eb52053006a925e43f82f099bc86b9b81b72310
   <tab tabTitle="Add Food" >
     <h1 align="center">Food List</h1>
 
@@ -70,7 +61,7 @@
           <tr class="bg-primary">
             <th>#</th>
             <th>Name</th>
-            <th>Calorie</th>
+            <th>Calories</th>
             <th>Delete</th>
           </tr>
         </thead>
