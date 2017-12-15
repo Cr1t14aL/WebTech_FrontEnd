@@ -35,6 +35,10 @@ export class FoodlistComponent implements OnInit {
   }
   deletArray(i: number)
   {
+    this.addMenuList.forEach( res => {
+      this.total -= res.foodCalories;
+      console.log(this.total);
+    });
     this.addMenuList.splice(i,1);
   }
 
