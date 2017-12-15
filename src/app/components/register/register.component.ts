@@ -3,7 +3,8 @@ import { UserService } from '../../services/user.service';
 import { User, TYPES, STATUS } from '../../Models/user.model';
 import { AuthGuard } from '../../auth-guard.service';
 import { AuthService } from '../../services/auth.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'ngx-flash-messages';
 
 @Component({
   selector: 'app-home-register',
@@ -13,23 +14,25 @@ import {Router} from '@angular/router';
 
 export class RegisterComponent implements OnInit {
   user: User;
-  err : string[] = [];
+  err: string[] = [];
   constructor(
     private userService: UserService,
-    private router:Router){ }
+    private router: Router,
+    private flashMessagesService: FlashMessagesService
+  ) { }
 
-    
+
   ngOnInit() {
     this.user = new User();
   }
 
   registed() {
     this.err = [];
-    if(!this.user.email){
-      this.err.push("Please use a valid  email")
+    if (!this.user.email) {
+      this.err.push("Email")
       return;
     }
-    if(!this.user.password){
+    if (!this.user.password) {
       this.err.push("password")
       return;
     }
@@ -38,8 +41,11 @@ export class RegisterComponent implements OnInit {
     this.user.types = TYPES.member;
 
     this.user.usertotalCal = [];
+   
+    this.userService.create(this.user).subscribe(user => {  
 
-    this.userService.create(this.user).subscribe( user => {
+      this.flashMessagesService.show('Register is Success!', {classes: ['alert', 'alert-success'], timeout: 3000}); 
+
       this.router.navigate(['/homepage'])
     }, err => {
       this.err.push(`This email already exists`);
@@ -47,7 +53,6 @@ export class RegisterComponent implements OnInit {
 
     var login = document.getElementById("Login");
     login.onclick;
-
-
   }
+  
 }
