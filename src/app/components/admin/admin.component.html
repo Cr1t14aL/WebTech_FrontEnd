@@ -1,12 +1,13 @@
 <h1 align="center">...Admin...</h1>
 <tabs layout-width="500px">
-  <tab tabTitle="Check User">
+  <tab tabTitle="Check User" active="true">
     <h1 align="center">User List</h1>
     <br />
     <div class="container">
       <table class="table">
         <thead>
           <tr class="bg-success">
+            <th>#</th>
             <th>ID</th>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -15,7 +16,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of userList">
+          <tr *ngFor="let user of userList; index as i">
+            <td>{{i+1}}</td>
             <th scope="row">{{user._id}}</th>
             <td>{{user.fname}} </td>
             <td>{{user.lname}}</td>
@@ -29,7 +31,7 @@
     </div>
 
   </tab>
-  <tab tabTitle="Add Food" active="true">
+  <tab tabTitle="Add Food">
     <h1 align="center">Food List</h1>
 
     <div class="container">
@@ -42,7 +44,7 @@
             <!-- <h5>Date: </h5><input type="text" class="form-control" placeholder="1, 2, 3,..." aria-label="Search for..."> -->
             
             <span class="input-group-btn">
-              <button class="btn btn-success" type="button" (click)="addFoodList()">Submit</button>          
+              <button class="btn btn-success" type="button" (click)="addFoodList()">Submit</button>         
 
             </span>
           </div>
@@ -73,4 +75,3 @@
       </table>
     </div>
   </tab>
-  <tabs>
