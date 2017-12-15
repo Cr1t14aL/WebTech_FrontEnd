@@ -44,9 +44,10 @@ export class RegisterComponent implements OnInit {
    
     this.userService.create(this.user).subscribe(user => {  
 
-      this.flashMessagesService.show('Register is Success!', {classes: ['alert', 'alert-success'], timeout: 3000}); 
+      // this.flashMessagesService.show('Register is Success!', {classes: ['alert', 'alert-success'], timeout: 3000}); 
 
       this.router.navigate(['/homepage'])
+      
     }, err => {
       this.err.push(`This email already exists`);
     })
