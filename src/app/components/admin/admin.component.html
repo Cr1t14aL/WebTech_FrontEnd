@@ -1,15 +1,16 @@
 <ngx-loading [show]="loading" [config]="{fullScreenBackdrop:true}"></ngx-loading>
 
 <h1 align="center">ADMIN PAGE</h1>
-<tabs layout-width="500px">
-  
-  <tab tabTitle="Check User" active="true">
+<tabs layout-width="500px" active="true">
+
+  <tab tabTitle="Check User">
     <h1 align="center">User List</h1>
     <br />
     <div class="container">
       <table class="table">
         <thead>
           <tr class="bg-success">
+            <th>#</th>
             <th>ID</th>
             <th>Firstname</th>
             <th>Lastname</th>
@@ -20,8 +21,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of userList">
-            <th scope="row">{{user._id}}</th>
+          <tr *ngFor="let user of userList;index as i">
+            <th scope="row">{{i+1}}</th>
+            <th>{{user._id}}</th>
             <td>{{user.fname}} </td>
             <td>{{user.lname}}</td>
             <td>{{user.email}}</td>
@@ -30,7 +32,7 @@
                 <span *ngSwitchCase="0">Member</span>
                 <span *ngSwitchCase="1">Admin</span>
                 <span *ngSwitchCase="2">Super Admin</span>
-                <span *ngSwitchCase="3">Aleady Delete</span>
+                <span *ngSwitchCase="3">Already Delete</span>
               </div>
             </td>
             <td>
@@ -40,10 +42,9 @@
         </tbody>
       </table>
     </div>
-
-    
-
   </tab>
+
+  <!-- FoodList table -->
   <tab tabTitle="Add Food" >
     <h1 align="center">Food List</h1>
 
@@ -55,13 +56,12 @@
       </div>
       <br />
 
-      <!-- FoodList table -->
       <table class="table">
         <thead>
           <tr class="bg-primary">
             <th>#</th>
             <th>Name</th>
-            <th>Calorie</th>
+            <th>Calories</th>
             <th>Delete</th>
           </tr>
         </thead>
@@ -78,37 +78,36 @@
       </table>
     </div>
   </tab>
-<!-- EDIT USER TYPES -->
-<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="updateUser" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title justify-content-md-center" id="updateUser">Update</h5>
-        <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row justify-content-md-between">
-          <div class="col-md-7 mb-3">
-            User : {{editUser.email}}
 
-          </div>
-          <div class="col-md-5 mb-3">
+  <!-- EDIT USER TYPES -->
+  <div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="updateUser" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title justify-content-md-center" id="updateUser">Update</h5>
+          <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row justify-content-md-between">
+            <div class="col-md-7 mb-3">
+              User : {{editUser.email}}
 
-            <select class="custom-select" [(ngModel)]="editUser.types">
-              <option [ngValue]="0">Member</option>
-              <option [ngValue]="1">Admin</option>
-              <option [ngValue]="3">Delete</option>
-            </select>
+            </div>
+            <div class="col-md-5 mb-3">
+
+              <select class="custom-select" [(ngModel)]="editUser.types">
+                <option [ngValue]="0">Member</option>
+                <option [ngValue]="1">Admin</option>
+                <option [ngValue]="3">Delete</option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()">Update</button>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()">Update</button>
+        </div>
       </div>
     </div>
-  </div>
-
-  
