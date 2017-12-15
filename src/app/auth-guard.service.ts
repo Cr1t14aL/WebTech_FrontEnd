@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate  {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
         const session : Session = this.locals.retrieve('token');
 
-        if(session != null && session.types != 3){
+        if(session.types != 3){
             return true;
         }else{
             return false;

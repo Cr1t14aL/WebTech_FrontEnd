@@ -15,12 +15,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, data: { title: 'Home' } },
+    { path: 'home', component: HomeComponent, canActivate:[AuthGuard], data: { title: 'Home' } },
     { path: 'homepage', component: HomepageComponent, data: { title: 'Homepage' } },
     { path: 'register', component: RegisterComponent, data: { title: 'Register' }},
     { path: 'foodlist', component: FoodlistComponent, canActivate:[AuthGuard], data: { title: 'Foodlist'}},
-    { path: 'listmenu', component: ListmenuComponent, data: { title: 'Listmenu'}},
-    { path: 'profile', component: ProfileComponent, data: { title: 'Profile'}},
+    { path: 'listmenu', component: ListmenuComponent, canActivate:[AuthGuard], data: { title: 'Listmenu'}},
+    { path: 'profile', component: ProfileComponent, canActivate:[AuthGuard], data: { title: 'Profile'}},
     { path: 'admin', component: AdminComponent, canActivate:[AdminGuard], data: { title: 'admin'}}
 
     // { path: '**', component: PageNotFoundComponent, data: { title: 'Page not found' } },
