@@ -10,19 +10,9 @@ import {Router} from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private router:Router) { }
-    heightValue :Number = 0 ;
-    weightValue :Number = 0;
+
   ngOnInit() {
   }
 
-  changeToFood(){
-    this.router.navigate(['/foodlist']);
-    return false;
-  }
-
-  clearInput(){
-    this.heightValue = 0;
-    this.weightValue = 0;
-  }
 
 }
