@@ -6,7 +6,8 @@ export enum STATUS {
 export enum TYPES {
     member,
     admin,
-    superadmin
+    superadmin,
+    ban
 }
 
 export class User {
@@ -23,7 +24,10 @@ export class User {
 
     updatedAt : number;
     createdAt : number;
-    todayCal : number;
-    date : number;
+    usertotalCal : totalCal[];
 }
 
+export class totalCal{
+    todayCal: number;
+    date: number;
+}

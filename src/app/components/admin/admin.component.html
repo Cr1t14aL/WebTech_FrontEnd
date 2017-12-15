@@ -1,53 +1,56 @@
-<h1 align="center">...Admin...</h1>
+<ngx-loading [show]="loading" [config]="{fullScreenBackdrop:true}"></ngx-loading>
+
+<h1 align="center">ADMIN PAGE</h1>
 <tabs layout-width="500px">
-  <tab tabTitle="Check User" active="true">
+  
+  <tab tabTitle="Check User">
     <h1 align="center">User List</h1>
     <br />
     <div class="container">
       <table class="table">
         <thead>
           <tr class="bg-success">
-            <th>#</th>
             <th>ID</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
+            <th>Types</th>
+            <th>Delete</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of userList; index as i">
-            <td>{{i+1}}</td>
+          <tr *ngFor="let user of userList">
             <th scope="row">{{user._id}}</th>
             <td>{{user.fname}} </td>
             <td>{{user.lname}}</td>
             <td>{{user.email}}</td>
             <td>
-              <button type="button" class="btn btn-danger" (click)="deleteUser()">-</button>
+              <div [ngSwitch]="user.types">
+                <span *ngSwitchCase="0">Member</span>
+                <span *ngSwitchCase="1">Admin</span>
+                <span *ngSwitchCase="2">Super Admin</span>
+                <span *ngSwitchCase="3">Aleady Delete</span>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#updateUser" (click)="loadUser4Edit(user)" *ngIf="session.types > user.types">Edit</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
+    
+
   </tab>
-  <tab tabTitle="Add Food">
+  <tab tabTitle="Add Food" active="true">
     <h1 align="center">Food List</h1>
 
     <div class="container">
       <div class="row" layout-align="center">
         <div class="col-lg-12">
-          <div class="input-group">
-            <h5>Food ID: </h5><input type="text" id="foodid" class="form-control" placeholder="1, 2, 3,...">
-            <h5>Food Name: </h5><input type="text" id="foodname" class="form-control" placeholder="ต้ม, ผัด, แกง, ทอด, ..." >
-            <h5>Food Calories: </h5><input type="number" id="foodcal" class="form-control" placeholder="type number of cal...">
-            <!-- <h5>Date: </h5><input type="text" class="form-control" placeholder="1, 2, 3,..." aria-label="Search for..."> -->
-            
-            <span class="input-group-btn">
-              <button class="btn btn-success" type="button" (click)="addFoodList()">Submit</button>         
 
-            </span>
-          </div>
         </div>
       </div>
       <br />
@@ -59,7 +62,7 @@
             <th>#</th>
             <th>Name</th>
             <th>Calorie</th>
-            <th>Add</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -68,14 +71,44 @@
             <td>{{detail.foodName}}</td>
             <td>{{detail.foodCalories}}</td>
             <td>
-              <button type="button" class="btn btn-danger" (click)="changeToListMenu()">Delete</button>
+              <button type="button" class="btn btn-danger" (click)="changeToListMenu()">Edit</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-<<<<<<< HEAD
   </tab>
-=======
-  </tab>
->>>>>>> 5ecbec698e003b8db7dfe9c772f74708ab0550b9
+<!-- EDIT USER TYPES -->
+<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="updateUser" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title justify-content-md-center" id="updateUser">Update</h5>
+        <button type="button" class="close" id="closeModal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row justify-content-md-between">
+          <div class="col-md-7 mb-3">
+            User : {{editUser.email}}
+
+          </div>
+          <div class="col-md-5 mb-3">
+
+            <select class="custom-select" [(ngModel)]="editUser.types">
+              <option [ngValue]="0">Member</option>
+              <option [ngValue]="1">Admin</option>
+              <option [ngValue]="3">Delete</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateUser()">Update</button>
+      </div>
+    </div>
+  </div>
+
+  
