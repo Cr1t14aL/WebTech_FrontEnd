@@ -45,15 +45,13 @@ export class AdminComponent implements OnInit {
     })
     this.session = this.locals.retrieve('token');
 
-    this.detailsService.getDetail().subscribe((response) => { 
-      this.detailList = response;
-    })
-
     this.userService.getUsers().subscribe((response) => {
       this.userList = response;
     })
 
-
+    this.detailsService.getDetail().subscribe((response) => { 
+      this.detailList = response;
+    })
 
     // this.foodlist = new Details();
   }
