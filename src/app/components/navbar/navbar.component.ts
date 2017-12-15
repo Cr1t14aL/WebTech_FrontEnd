@@ -34,6 +34,14 @@ export class NavbarComponent implements OnInit {
   }
 
   signIn() {
+    if(!this.user.email){
+      this.err.push("Email Address can not be empty")
+      return;
+    }
+    if(!this.user.password){
+      this.err.push("Password can not be empty")
+      return;
+    }
     this.authService.signIn(this.user.email, this.user.password).subscribe(res => {
         this.localSt.store('token', res);
         if(this.session.types != 3){

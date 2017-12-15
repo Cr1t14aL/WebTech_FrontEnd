@@ -11,11 +11,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+          
         <h5 class="modal-title justify-content-md-center" id="Login">Login</h5>
         <button type="button" class="close" id = "closeModal" data-dismiss="modal" #closeBtn aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="row justify-content-md-center">
+          <div class="col-md-10 mb-3">
+            <div class="alert alert-danger" role="alert" *ngIf="err.length > 0">
+              <strong>Error</strong> {{err}}
+            </div>
+          </div>
+        </div>
       <div class="modal-body">
         <div class="row justify-content-md-center">
           <div class="col-md-10 mb-3">

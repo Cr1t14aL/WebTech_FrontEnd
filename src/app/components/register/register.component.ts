@@ -26,12 +26,18 @@ export class RegisterComponent implements OnInit {
   registed() {
     this.err = [];
     if(!this.user.email){
-      this.err.push("Please use a valid  email")
+      this.err.push("Please use a valid email")
       return;
     }
     if(!this.user.password){
-      this.err.push("password")
+      this.err.push("Please enter your password")
       return;
+    }
+    if(!this.user.fname){
+      this.err.push("Your firstname can not be empty")
+    }
+    if(!this.user.lname){
+      this.err.push("Your lastname can not be empty")
     }
 
     this.user.status = STATUS.normal;
