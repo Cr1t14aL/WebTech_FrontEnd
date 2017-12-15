@@ -3,8 +3,8 @@
   <h2 class="page-header">My Profile</h2>
   <ul class="list-group">
     <li class="list-group-item list-group-item-success" >Username: {{user.fname}}</li>
-    <li class="list-group-item list-group-item-success">Lastname: {{user.lname}}</li>
-    <li class="list-group-item list-group-item-info">Today Calorie: {{user.todayCal}}</li>
+    <li class="list-group-item list-group-item-success">Lastname: {{user.lname}}</li> 
+    <li class="list-group-item list-group-item-info" *ngFor="let cal of user.usertotalCal">Recent Calorie: {{cal.todayCal}}</li>
   </ul>
 </div>
 </div>
