@@ -4,17 +4,22 @@ import { Details } from '../../Models/detail.model';
 import { DetailsService } from '../../services/foodlist.service';
 import { UserService } from '../../services/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
+import { User} from '../../Models/user.model';
 
 @Component({
   selector: 'app-foodlist',
   templateUrl: './foodlist.component.html',
-  styleUrls: ['./foodlist.component.css']
+  styleUrls: ['./foodlist.component.css'],
+  providers:[User]
 })
 export class FoodlistComponent implements OnInit {
   private detailList : Details[];
   addMenuList : Details[];
   total : number;
-  constructor(private router:Router, private detailsService:DetailsService) { }
+  constructor(private router:Router, 
+    private detailsService:DetailsService,  
+    private locals: LocalStorageService,
+    private user:User) { }
   
   ngOnInit() {
 
@@ -41,7 +46,12 @@ export class FoodlistComponent implements OnInit {
 
   save()
   {
+    this.user=this.locals.retrieve('token')
+      this.user.todayCal=this.total
 
+    console.log(`${this.user.lname}`)
+    console.log(`${this.user.todayCal}`)
+    
   }
 
 }
