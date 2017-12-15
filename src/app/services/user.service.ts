@@ -28,10 +28,18 @@ export class UserService {
     create(user: User): Observable<User> {
         return this.http.post<User>(`${this.basePath}/create`, (user));
     }
+<<<<<<< HEAD
     update(user: User): Observable<User> {
         return this.http.put<User>(`${this.basePath}`, (user));
     }
     getSession() {
         this.session = this.local.retrieve('token');
     }
+=======
+
+    putUser(user: User): Observable<User> {
+        return this.http.put<User>(`${this.basePath}`, (user));
+    }
+
+>>>>>>> cd41639a68b65d1e8f25f7b7edc1038ebe9cb8e9
 }
