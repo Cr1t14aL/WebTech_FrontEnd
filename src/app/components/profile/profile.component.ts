@@ -8,17 +8,20 @@ import { Session } from '../../Models/session.model';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  providers:[User]
 })
 export class ProfileComponent implements OnInit {
   
   constructor(
     private router:Router, 
     private userService: UserService,
+    private locals: LocalStorageService,
     private auth: AuthGuard,
     private user:User
   ) { }
   ngOnInit() {
-  const user=localStorage.retrive('token')
+  this.user=this.locals.retrieve('token')
+  
   }
 }

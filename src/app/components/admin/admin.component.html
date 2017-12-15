@@ -1,27 +1,34 @@
-<div class="cotainer" align="center">
-  <h1>User List</h1>
+<tabs>
+  <tab tabTitle="Check User" active="true">
+    <h1 align="center">User List</h1>
+    <br />
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr class="bg-success">
+            <th>ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList">
+            <th scope="row">{{user._id}}</th>
+            <td>{{user.fname}} </td>
+            <td>{{user.lname}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="changeToListMenu()">-</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-</div>
-<br />
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr class="bg-success">
-        <th>ID</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of userList">
-        <th scope="row">{{user._id}}</th>
-        <td>{{user.fname}} </td>
-        <td>{{user.lname}}</td>
-        <td>{{user.email}}</td>
-        <td><button type="button" class="btn btn-danger" (click)="changeToListMenu()">-</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  </tab>
+  <tab tabTitle="Add Food">
+    Add Food Here!
+  </tab>
+  <tabs>
