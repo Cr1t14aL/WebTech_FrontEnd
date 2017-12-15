@@ -6,6 +6,7 @@ import { UserService } from '../../services/user.service';
 import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../../Models/user.model';
 import { totalCal } from '../../Models/user.model';
+import { auth } from '../../Models/auth.model';
 
 @Component({
   selector: 'app-foodlist',
@@ -18,6 +19,7 @@ export class FoodlistComponent implements OnInit {
   addMenuList: Details[];
   total: number;
   totalCal: totalCal;
+  auth : auth;
   constructor(private router: Router,
     private detailsService: DetailsService,
     private locals: LocalStorageService,
@@ -51,17 +53,18 @@ export class FoodlistComponent implements OnInit {
     this.totalCal = new totalCal();
     this.totalCal.todayCal = this.total;
     this.totalCal.date = new Date().getTime();
-    const token = this.locals.retrieve('token');
-    this.userService.getUserByID(token._id).subscribe(res => {
+    this.auth = this.locals.retrieve('token');
+    this.userService.getUserByID(this.auth.uid).subscribe(res => {
         this.user = res;
-        if (typeof this.user.usertotalCal === 'undefined')
+        if (typeof this.user.usertotalCal === null)
             this.user.usertotalCal = [];
-
+        console.log(this.user)
         this.user.usertotalCal.push(this.totalCal);
         this.userService.putUser(this.user).subscribe((response) => {
             alert('success');
         })
     })
-}
+    console.log(auth);
+  }
 
 }
