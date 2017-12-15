@@ -29,9 +29,15 @@ export class NavbarComponent implements OnInit {
   signIn() {
 
     this.authService.signIn(this.user.email, this.user.password).subscribe(res => {
-      this.localSt.store('token', res);
-      document.getElementById("closeModal").click();
-      this.router.navigate(['/home']);
+      if(this.user.types == 3){
+        document.getElementById("closeModal").click();
+        this.router.navigate(['/homepage'])
+      }else{
+        this.localSt.store('token', res);
+        document.getElementById("closeModal").click();
+        this.router.navigate(['/home']);
+      }
+      
 
     })
   }
