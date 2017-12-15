@@ -23,7 +23,10 @@ export class User {
 
     updatedAt : number;
     createdAt : number;
-    todayCal : number;
-    date : number;
+    usertotalCal : totalCal[];
 }
 
+export class totalCal{
+    todayCal: number;
+    date: number;
+}

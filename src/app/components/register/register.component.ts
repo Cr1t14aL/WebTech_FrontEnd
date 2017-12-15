@@ -37,6 +37,8 @@ export class RegisterComponent implements OnInit {
     this.user.status = STATUS.normal;
     this.user.types = TYPES.member;
 
+    this.user.usertotalCal = [];
+
     this.userService.create(this.user).subscribe( user => {
       this.router.navigate(['/homepage'])
     }, err => {
