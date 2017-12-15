@@ -1,5 +1,6 @@
-<tabs>
-  <tab tabTitle="Check User" active="true">
+<h1 align="center">...Admin...</h1>
+<tabs layout-width="500px">
+  <tab tabTitle="Check User">
     <h1 align="center">User List</h1>
     <br />
     <div class="container">
@@ -20,7 +21,7 @@
             <td>{{user.lname}}</td>
             <td>{{user.email}}</td>
             <td>
-              <button type="button" class="btn btn-danger" (click)="changeToListMenu()">-</button>
+              <button type="button" class="btn btn-danger" (click)="deleteUser()">-</button>
             </td>
           </tr>
         </tbody>
@@ -28,7 +29,48 @@
     </div>
 
   </tab>
-  <tab tabTitle="Add Food">
-    Add Food Here!
+  <tab tabTitle="Add Food" active="true">
+    <h1 align="center">Food List</h1>
+
+    <div class="container">
+      <div class="row" layout-align="center">
+        <div class="col-lg-12">
+          <div class="input-group">
+            <h5>Food ID: </h5><input type="text" id="foodid" class="form-control" placeholder="1, 2, 3,...">
+            <h5>Food Name: </h5><input type="text" id="foodname" class="form-control" placeholder="ต้ม, ผัด, แกง, ทอด, ..." >
+            <h5>Food Calories: </h5><input type="number" id="foodcal" class="form-control" placeholder="type number of cal...">
+            <!-- <h5>Date: </h5><input type="text" class="form-control" placeholder="1, 2, 3,..." aria-label="Search for..."> -->
+            
+            <span class="input-group-btn">
+              <button class="btn btn-success" type="button" (click)="addFoodList()">Submit</button>          
+
+            </span>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <!-- FoodList table -->
+      <table class="table">
+        <thead>
+          <tr class="bg-primary">
+            <th>#</th>
+            <th>Name</th>
+            <th>Calorie</th>
+            <th>Add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detail of detailList">
+            <th scope="row">{{detail.foodID}}</th>
+            <td>{{detail.foodName}}</td>
+            <td>{{detail.foodCalories}}</td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="changeToListMenu()">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </tab>
   <tabs>
