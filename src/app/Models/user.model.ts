@@ -24,3 +24,8 @@ export class User {
     updatedAt : number;
     createdAt : number;
 }
+
+export class userCal {
+    todayCal : number;
+    date : number;
+}

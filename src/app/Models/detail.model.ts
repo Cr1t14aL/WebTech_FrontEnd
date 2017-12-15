@@ -1,8 +1,8 @@
 export class Details
 {
-    id: String;
-    foodName: String;
-    Calories: Number;
-    creatAt: String;
+    id: string;
+    foodName: string;
+    foodCalories: number;
+    creatAt: string;
 
 }

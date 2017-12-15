@@ -23,12 +23,39 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let detail of detailList">
+        <tr *ngFor="let detail of detailList; index as i">
           <th scope="row">{{detail.foodID}}</th>
           <td>{{detail.foodName}}</td>
           <td>{{detail.foodCalories}}</td>
-          <td><button type="button" class="btn btn-success" (click)="changeToListMenu()">Add</button></td>
+          <td><button type="button" class="btn btn-success" (click)="addToArray(detail)">Add</button></td>
         </tr>
       </tbody>
     </table>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr class="bg-primary">
+            <th>#</th>
+            <th>Name</th>
+            <th>Calorie</th>
+            <th>Add</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let menu of addMenuList; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{menu.foodName}}</td>
+            <td>{{menu.foodCalories}}</td>
+            <td><button type="button" class="btn btn-success" (click)="deletArray(i)">Del</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="justify-content-center">
+        <span>รวมทั้งหมด {{total}}</span>
+      </ul>
+      <ul class="justify-content-center">
+        <button type="btn" class="btn btn-primary" (click)="save()">Save</button>
+      </ul>
+    </div>
 </div>
