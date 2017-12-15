@@ -51,15 +51,17 @@ export class FoodlistComponent implements OnInit {
     this.totalCal = new totalCal();
     this.totalCal.todayCal = this.total;
     this.totalCal.date = new Date().getTime();
-    this.user = this.locals.retrieve('token');
-    if(typeof this.user.usertotalCal === 'undefined')
-      this.user.usertotalCal = [];
+    const token = this.locals.retrieve('token');
+    this.userService.getUserByID(token._id).subscribe(res => {
+        this.user = res;
+        if (typeof this.user.usertotalCal === 'undefined')
+            this.user.usertotalCal = [];
 
-    this.user.usertotalCal.push(this.totalCal);
-    console.log(this.user);
-    this.userService.putUser(this.user).subscribe((response) => {
-          alert('success');
+        this.user.usertotalCal.push(this.totalCal);
+        this.userService.putUser(this.user).subscribe((response) => {
+            alert('success');
+        })
     })
-  }
+}
 
 }
