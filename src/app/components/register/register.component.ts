@@ -4,7 +4,6 @@ import { User, TYPES, STATUS } from '../../Models/user.model';
 import { AuthGuard } from '../../auth-guard.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FlashMessagesService } from 'ngx-flash-messages';
 
 @Component({
   selector: 'app-home-register',
@@ -18,7 +17,6 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private flashMessagesService: FlashMessagesService
   ) { }
 
 
@@ -28,28 +26,21 @@ export class RegisterComponent implements OnInit {
 
   registed() {
     this.err = [];
-<<<<<<< HEAD
     if(!this.user.email){
       this.err.push("Please use a valid email")
       return;
     }
     if(!this.user.password){
       this.err.push("Please enter your password")
-=======
-    if (!this.user.email) {
-      this.err.push("Email")
-      return;
-    }
-    if (!this.user.password) {
-      this.err.push("password")
->>>>>>> 6fa8cb8d8f4838e110edecf2ffa6917ed6104a6a
       return;
     }
     if(!this.user.fname){
       this.err.push("Your firstname can not be empty")
+      return;
     }
     if(!this.user.lname){
       this.err.push("Your lastname can not be empty")
+      return;
     }
 
     this.user.status = STATUS.normal;
@@ -58,11 +49,11 @@ export class RegisterComponent implements OnInit {
     this.user.usertotalCal = [];
    
     this.userService.create(this.user).subscribe(user => {  
-
-      // this.flashMessagesService.show('Register is Success!', {classes: ['alert', 'alert-success'], timeout: 3000}); 
-
+ 
+    
+      window.alert('Register Successful!')
       this.router.navigate(['/homepage'])
-      
+
     }, err => {
       this.err.push(`This email already exists`);
     })

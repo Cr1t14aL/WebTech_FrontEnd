@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlashMessagesModule } from 'ngx-flash-messages';
 import { TabModule } from 'angular-tabs-component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -51,7 +50,6 @@ import { LoadingModule } from 'ngx-loading';
     Ng2Webstorage,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlashMessagesModule,
     TabModule,
     LoadingModule,
     SidebarModule.forRoot(),
