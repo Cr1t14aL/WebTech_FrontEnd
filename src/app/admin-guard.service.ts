@@ -17,6 +17,7 @@ export class AdminGuard implements CanActivate {
         if(session != null && session.types == 1 || session.types == 2){
             return true;
         }else{
+            window.alert('NICE TRY BUY YOU DO NOT HAVE PERMISSION HERE.')
             return false;
         }
         
