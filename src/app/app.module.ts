@@ -28,6 +28,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AdminGuard } from './admin-guard.service';
 import { DetailsService } from './services/foodlist.service';
+import { LoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { DetailsService } from './services/foodlist.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     TabModule,
+    LoadingModule,
     SidebarModule.forRoot(),
   ],
   providers: [SlidebarService, AuthGuard, AdminGuard,AuthService,UserService,AuthService,DetailsService,ProfileComponent],

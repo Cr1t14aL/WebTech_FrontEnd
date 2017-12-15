@@ -14,7 +14,7 @@ export class AdminGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
         const session : Session = this.locals.retrieve('token');
 
-        if(session.types == 1){
+        if(session != null && session.types == 1 || session.types == 2){
             return true;
         }else{
             return false;
