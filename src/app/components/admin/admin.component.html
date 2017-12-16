@@ -10,8 +10,8 @@
       <table class="table">
         <thead>
           <tr class="bg-success">
-            <th>#</th>
             <th>ID</th>
+            <!-- <th>ID</th> -->
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
@@ -23,7 +23,7 @@
         <tbody>
           <tr *ngFor="let user of userList;index as i">
             <th scope="row">{{i+1}}</th>
-            <th>{{user._id}}</th>
+            <!-- <th>{{user._id}}</th> -->
             <td>{{user.fname}} </td>
             <td>{{user.lname}}</td>
             <td>{{user.email}}</td>
