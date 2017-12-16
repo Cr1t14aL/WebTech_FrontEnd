@@ -19,7 +19,7 @@ export class FoodlistComponent implements OnInit {
   addMenuList: Details[];
   total: number;
   totalCal: totalCal;
-  auth : auth;
+  auth: auth;
   constructor(private router: Router,
     private detailsService: DetailsService,
     private locals: LocalStorageService,
@@ -29,7 +29,7 @@ export class FoodlistComponent implements OnInit {
   ngOnInit() {
 
     this.detailsService.getDetail().subscribe((response) => {
-    this.detailList = response;
+      this.detailList = response;
     })
     this.addMenuList = [];
   }
@@ -39,10 +39,9 @@ export class FoodlistComponent implements OnInit {
     this.addMenuList.push(detail);
     this.addMenuList.forEach(res => {
       this.total += res.foodCalories;
-      console.log(res);
+
     });
-    console.log(this.total);
-    console.log(this.addMenuList);
+
   }
   deletArray(i: number) {
     this.total -= this.addMenuList[i].foodCalories;
@@ -50,19 +49,40 @@ export class FoodlistComponent implements OnInit {
   }
 
   save() {
+    let today: Date = new Date();
     this.totalCal = new totalCal();
     this.totalCal.todayCal = this.total;
     this.totalCal.date = new Date().getTime();
+    let todayString: string = `${today.getDay()}-${today.getMonth()}-${today.getFullYear()}`
+    let todaySever: Date;
     this.auth = this.locals.retrieve('token');
     this.userService.getUserByID(this.auth.uid).subscribe(res => {
-        this.user = res;
-        if (typeof this.user.usertotalCal === null)
-            this.user.usertotalCal = [];
-        console.log(this.user)
+      this.user = res;
+      if (typeof this.user.usertotalCal === null) {
+        this.user.usertotalCal = [];
+      }
+      if (this.user.usertotalCal.length == 0) {
         this.user.usertotalCal.push(this.totalCal);
         this.userService.putUser(this.user).subscribe((response) => {
-            alert('success');
+          alert('success')
         })
+      } else {
+        this.user.usertotalCal.forEach(res => {
+          todaySever = new Date(res.date);
+          if (todayString == `${todaySever.getDay()}-${todaySever.getMonth()}-${todaySever.getFullYear()}`) {
+
+            res.todayCal += this.total;
+
+          } else {
+            this.user.usertotalCal.push(this.totalCal);
+          }
+        })
+
+        this.userService.putUser(this.user).subscribe((response) => {
+          alert('success')
+        })
+      }
+
     })
     console.log(auth);
   }
